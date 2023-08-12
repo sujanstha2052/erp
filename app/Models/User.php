@@ -47,4 +47,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function scopeAdmin($query)
+    {
+        return $query->where('type', 'admin');
+    }
+
+    public function scopeCustomer($query)
+    {
+        return $query->where('type', 'customer');
+    }
+
+    public function scopePartner($query)
+    {
+        return $query->where('type', 'partner');
+    }
 }
