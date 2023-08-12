@@ -6,50 +6,25 @@
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
-    <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
-            </div>
-        </div>
-
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                    aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-       with font-awesome or any other icon font library -->
-                <x-admin.sidebar-link :name="__('Dashboard')" :icon="__('fa-th')" :status="__('')" />
 
-                <x-admin.sidebar-dropdown :topic="__('Starter Page')" :icon="__('fa-tachometer-alt')" :status="__('')" :menu="__('menu-open')">
+                <x-admin.sidebar-link :name="__('Dashboard')" :icon="__('fa-th')" :status="__('')" :link="route('dashboard')" />
 
-                    <x-admin.sidebar-link :name="__('Active Page')" :icon="__('fa-circle')" :status="__('')" />
 
-                    <x-admin.sidebar-link :name="__('Inactive Page')" :icon="__('fa-circle')" :status="__('')" />
+                <x-admin.sidebar-dropdown :topic="__('Company')" :icon="__('fa-building')" :status="__('')" :menu="__('menu-open')">
+
+                    <x-admin.sidebar-link :name="__('Companies')" :icon="__('fa-building')" :status="__('')" :link="route('dashboard')" />
+
+                    <x-admin.sidebar-link :name="__('Subscription')" :icon="__('fa-gifts')" :status="__('')" :link="route('dashboard')" />
 
                 </x-admin.sidebar-dropdown>
 
+                <x-admin.sidebar-link :name="__('Users')" :icon="__('fa-users')" :status="__('')" :link="route('users.index')" />
+
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
 </aside>
