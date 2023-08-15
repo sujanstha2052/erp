@@ -12,5 +12,6 @@ Route::middleware(['auth', 'is-admin', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('users/datatable-data', [UserController::class, 'ajaxDatatable'])->name('users.datatable-data');
     Route::resource('users', UserController::class);
 });

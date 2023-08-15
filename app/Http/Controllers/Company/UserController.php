@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Company;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -44,5 +45,19 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function ajaxDatatable(Request $request)
+    {
+        $users = User::query()->admin();
+
+        return Datatables::of($users)
+            ->addIndexColumn()
+            ->addColumn('action', function ($row) {
+                $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                return $actionBtn;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
 }
